@@ -1,0 +1,20 @@
+%h1 Users
+%p
+%table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%"}
+  %tr.user_tr
+    %th First name
+    %th Last name
+    %th E-mail
+    %th Address
+    %th Delete user
+  -@users.each do |i|
+    %tr{:align => 'right', :data_user_id => i.id}
+      %td= i.first_name
+      %td= i.last_name
+      %td= i.email
+      %td= i.user_country + ", " + i.user_state + ", " + i.user_city + ", " + i.user_address
+      %td %span.deleteUser Delete
+      %td= link_to "del", i, method: :delete, data: { confirm: "точно"}
+%p
+%form{:action => "registration_form/new"}
+  %button{:type => "submit"} Add new user

@@ -1,0 +1,21 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the registration_form controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.deleteUser
+{
+  color: blue;
+  border-bottom: dotted;
+  cursor: pointer;
+}
+.required_fields_color
+{
+  color: red;
+  font-size: 20px;
+}
+.error-box{
+  color: red;
+  font-size: 12px;
+}

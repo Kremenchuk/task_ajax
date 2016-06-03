@@ -1,0 +1,39 @@
+%h1 User registration form
+.col-md-12
+  =label_tag("First name*")
+  %p{:title => "Your first name"}
+    %input{:maxlength => "20", :name => "user_first_name", :pattern => "^[ 0-9]+$", :size => "20", :value => "Jon", :type => "text", :class => "input_field"}
+    .error_box_first_name
+
+  =label_tag("Last name*")
+  %p{:title => "Your last name"}
+    %input{:maxlength => "20", :name => "user_last_name", :pattern => "^[ 0-9]+$", :size => "20", :value => "Smit", :type => "text", :class => "input_field"}
+    .error_box_last_name
+
+  =label_tag("E-mail*")
+  %p{:title => "Your e-mail adress"}
+    %input{:maxlength => "20", :name => "user_email", :pattern => "^[ 0-9]+$", :size => "20", :value => "asd@gmail.com", :type => "text", :class => "input_field"}
+    .error_box_email
+%p.required_fields_color
+  * - required fields
+.col-md-12
+  %h3 Delivery address
+.col-md-12
+  =label_tag("Country")
+  %p
+    %input{:maxlength => "20", :name => "user_country", :pattern => "^[ 0-9]+$", :size => "20", :value => "", :type => "text", :class => "input_field"}
+
+  =label_tag("State")
+  %p
+    %input{:maxlength => "20", :name => "user_state", :pattern => "^[ 0-9]+$", :size => "20", :value => "", :type => "text", :class => "input_field"}
+
+  =label_tag("City")
+  %p
+    %input{:maxlength => "20", :name => "user_city", :pattern => "^[ 0-9]+$", :size => "20", :value => "", :type => "text", :class => "input_field"}
+
+  =label_tag("Address")
+  %p
+    %input{:maxlength => "20", :name => "user_address", :pattern => "^[ 0-9]+$", :size => "20", :value => "", :type => "text", :class => "input_field"}
+
+
+%input{:name => "send", :type => "button", :value => "Registration", :class => "btn btn-success", :id => "regis"}
