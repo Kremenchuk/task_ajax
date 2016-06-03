@@ -1,4 +1,41 @@
 %h1 User registration form
+= form_for User.new do |f|
+  %p
+    First name
+    %br
+      = f.text_field :first_name
+  %p
+    Last name
+    %br
+    = f.text_field :last_name
+  %p
+    E-mail
+    %br
+    = f.text_field :email
+  %p
+    Country
+    %br
+    = f.text_field :user_country
+  %p
+    State
+    %br
+    = f.text_field :user_state
+  %p
+    City
+    %br
+    = f.text_field :user_city
+  %p
+    First name
+    %br
+    = f.text_field :user_address
+  %p= f.submit "Создать товар"
+%---------------------------------------------------------------------
+
+
+
+
+
+
 .col-md-12
   =label_tag("First name*")
   %p{:title => "Your first name"}
@@ -35,5 +72,5 @@
   %p
     %input{:maxlength => "20", :name => "user_address", :pattern => "^[ 0-9]+$", :size => "20", :value => "", :type => "text", :class => "input_field"}
 
-
-%input{:name => "send", :type => "button", :value => "Registration", :class => "btn btn-success", :id => "regis"}
+%form{:action => "users", :method => "POST"}
+  %input{:name => "send", :type => "button", :value => "Registration", :class => "btn btn-success", :id => "regis"}

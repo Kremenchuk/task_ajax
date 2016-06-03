@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'users#index'
   get 'users/new'
+  resources :users
+  #get 'users/destroy'
+  #get '/users/:id', :to => 'users#index', :as => :user
+  #get ":controller(/:action(/:id))(.:format)"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :find_user, only: [:destroy]
 
   def index
     @users = User.all
+    #@user = User.new
     #@user.first_name = "Bob"
     #@user.last_name = "Bond"
     #@user.email = "asd@gmail.com"
@@ -14,25 +14,30 @@ class UsersController < ApplicationController
   end
 
   def new
-    #@user = User.new
+    @user = User.new
   end
 
   def create
-
+    @user = User.create(params[:user])
+    if @user.errors.empty?
+      render json: {success: true}
+      #redirect_to action: "index"
+    else
+      render json: {success: false}
+      #render "new"
+    end
+    #render text: params.inspect
+    #render json: {success: true}
+    #redirect_to action: "index"
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to action: "index"
+    #redirect_to action: "index"
     render json: {success: true}
   end
 
 
-  private
-
-  def find_user
-    @user = User.find(params[:id]).first
-  end
 
 end

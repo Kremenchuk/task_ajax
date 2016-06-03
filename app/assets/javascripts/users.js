@@ -12,7 +12,7 @@ jQuery(function($)
         var current_user = $(this).parents('tr')[0];
         if(confirm("Delete User?")){
             $.ajax({
-                url:'/registration_form/' + $(current_user).attr('data_user_id'),
+                url:'/users/' + $(current_user).attr('data_user_id'),
                 type: 'POST',
                 data: {_method: 'DELETE' },
                 success: function() {
@@ -129,11 +129,25 @@ jQuery(function($)
 
         //+++insert new user+++
 
-        var first_name =document.getElementsByName('user_first_name')[0].value
-        var last_name  =document.getElementsByName('user_last_name')[0].value
-        var e_mail     = document.getElementsByName('user_email')[0].value
+        var first_name =document.getElementsByName('user_first_name')[0].value;
+        var last_name  =document.getElementsByName('user_last_name')[0].value;
+        var e_mail     = document.getElementsByName('user_email')[0].value;
         var address    = document.getElementsByName('user_country')[0].value + ", " + document.getElementsByName('user_state')[0].value + ", " +
             document.getElementsByName('user_city')[0].value + ", " + document.getElementsByName('user_address')[0].value;
+
+        $.ajax({
+            url:'/users',
+            type: 'POST',
+            dataType: 'json',
+            data: {_method: 'DELETE' },
+
+            success: function() {
+               alert ("Удачненько")
+            }
+
+        });
+
+        /*
         $.ajax({
             success: function() {
                 $("<tr align = 'right', class = 'user_row'}>" +
@@ -144,7 +158,7 @@ jQuery(function($)
                 "<td><span class = 'deleteUser'>Delete</span></td></<tr>").fadeIn(500).insertAfter(".user_tr");
             }
         });
-
+*/
         //---insert new user---
 
 
