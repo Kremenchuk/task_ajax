@@ -17,7 +17,5 @@
       %td= i.user_country + ", " + i.user_state + ", " + i.user_city + ", " + i.user_address
       %td
         %span.deleteUser Delete
-      %td= link_to "del", i, method: :delete, data: { confirm: "точно"}
 %p
-%form{:action => "users/new"}
-  %button{:type => "submit"} Add new user
+  = link_to "New user", 'users/new',:id => 'new_user_link' , :remote => true

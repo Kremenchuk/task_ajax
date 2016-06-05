@@ -18,17 +18,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params[:user])
-    if @user.errors.empty?
-      render json: {success: true}
-      #redirect_to action: "index"
+    @user = User.create!(params[:user])
+   if @user.errors.empty?
+     redirect_to users_url
     else
-      render json: {success: false}
-      #render "new"
+      #render json: {success: false}
     end
-    #render text: params.inspect
-    #render json: {success: true}
-    #redirect_to action: "index"
   end
 
   def destroy

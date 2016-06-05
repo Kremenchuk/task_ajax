@@ -1,0 +1,39 @@
+%h1 User registration form
+= form_for User.new do |f|
+  %p
+    First name
+    %br
+    = f.text_field :first_name , :value => "Bob"
+    .error_box_first_name
+  %p
+    Last name
+    %br
+    = f.text_field :last_name, :value => "Smit"
+    .error_box_last_name
+  %p
+    E-mail
+    %br
+    = f.text_field :email, :value => "asd@gmail.com"
+    .error_box_email
+  %p.required_fields_color
+    * - required fields
+  .col-md-12
+    %h3 Delivery address
+  .col-md-12
+  %p
+    Country
+    %br
+    = f.text_field :user_country, :value => "USA"
+  %p
+    State
+    %br
+    = f.text_field :user_state, :value => "AR"
+  %p
+    City
+    %br
+    = f.text_field :user_city, :value => "JA"
+  %p
+    Address
+    %br
+    = f.text_field :user_address, :value => "strit"
+  %input{:name => "send", :type => "submit", :value => "Registration", :class => "btn btn-success", :id => "regis"}
