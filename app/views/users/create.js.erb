@@ -1,0 +1,4 @@
+$('#new_user').remove();
+$('#new_user_link').show();
+$('#users_table').append('<%= j render('user_add') %>')
+$('.deleteUser').submitOnCheck();

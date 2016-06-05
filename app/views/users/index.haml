@@ -1,21 +1,15 @@
 %h1 Users
 %p
 %table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%"}
-  %tr.user_tr
+  %tr
     %th id
     %th First name
     %th Last name
     %th E-mail
     %th Address
     %th Delete user
-  -@users.each do |i|
-    %tr{:align => 'right', :data_user_id => i.id}
-      %td= i.id
-      %td= i.first_name
-      %td= i.last_name
-      %td= i.email
-      %td= i.user_country + ", " + i.user_state + ", " + i.user_city + ", " + i.user_address
-      %td
-        %span.deleteUser Delete
+  -i = @users
+  = render partial: "user", locals: {i: i}
+#users_table
 %p
   = link_to "New user", 'users/new',:id => 'new_user_link' , :remote => true

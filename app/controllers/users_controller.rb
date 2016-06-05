@@ -18,11 +18,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(params[:user])
+    @user = User.create(params[:user])
    if @user.errors.empty?
-     redirect_to users_url
+     respond_to do |format|
+       format.html { redirect_to "users/index"}
+       format.js
+     end
     else
-      #render json: {success: false}
+      render json: {success: false}
     end
   end
 
@@ -36,3 +39,12 @@ class UsersController < ApplicationController
 
 
 end
+#-@users.each do |i|
+#%tr{:align => 'right', :data_user_id => i.id, :id => 'users_list'}
+#%td= i.id
+#%td= i.first_name
+#%td= i.last_name
+#%td= i.email
+#%td= i.user_country + ", " + i.user_state + ", " + i.user_city + ", " + i.user_address
+#%td
+#%span.deleteUser Delete

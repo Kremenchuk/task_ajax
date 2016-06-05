@@ -1,39 +1,40 @@
-%h1 User registration form
-= form_for User.new do |f|
-  %p
+= form_for User.new, remote: true do |f|
+  %h1 User registration form
+  .col-md-2
     First name
     %br
     = f.text_field :first_name , :value => "Bob"
     .error_box_first_name
-  %p
+  .col-md-2
     Last name
     %br
     = f.text_field :last_name, :value => "Smit"
     .error_box_last_name
-  %p
+  .col-md-2
     E-mail
     %br
     = f.text_field :email, :value => "asd@gmail.com"
     .error_box_email
-  %p.required_fields_color
+  .col-md-12.required_fields_color
     * - required fields
   .col-md-12
     %h3 Delivery address
   .col-md-12
-  %p
+  .col-md-2
     Country
     %br
     = f.text_field :user_country, :value => "USA"
-  %p
+  .col-md-2
     State
     %br
     = f.text_field :user_state, :value => "AR"
-  %p
+  .col-md-2
     City
     %br
     = f.text_field :user_city, :value => "JA"
-  %p
+  .col-md-2
     Address
     %br
     = f.text_field :user_address, :value => "strit"
-  %input{:name => "send", :type => "submit", :value => "Registration", :class => "btn btn-success", :id => "regis"}
+  .col-md-12
+    %input{:name => "send", :type => "submit", :value => "Registration", :class => "btn btn-success", :id => "regis"}
