@@ -22,7 +22,7 @@
 //+++Delete user+++
     $(function() {
          $(".deleteUser").click(function () {
-            var current_user = $(this).parents('tr')[0];
+            var current_user = $(this).parents('div')[0];
             if (confirm("Delete User?")) {
                 $.ajax({
                     url: '/users/' + $(current_user).attr('data_user_id'),
@@ -41,7 +41,6 @@
 $(function() {
         $('#regis').click(function () {
             //+++validation+++
-            alert("Validation");
             //+++user[first_name] validation+++
 
             if (document.getElementsByName('user[first_name]')[0].value == "") {

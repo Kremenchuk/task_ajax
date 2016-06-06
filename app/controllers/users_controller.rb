@@ -2,22 +2,28 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.new
+  end
+
+  def show
+    #@users = User.all
+    #redirect_to action: "index"
   end
 
   def new
-    @user = User.new
+
   end
 
   def create
     @user = User.new(params[:user])
 
-   respond_to do |format|
+    respond_to do |format|
       if @user.save
-        format.html { render action: "index", notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.js   {}
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: "index" }
+        format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

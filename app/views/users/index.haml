@@ -1,13 +1,53 @@
 %h1 Users
 %p
-  %table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%"}
-    %tr.user_tr
-      %th id
-      %th First name
-      %th Last name
-      %th E-mail
-      %th Address
-      %th Delete user
-      =render @users
-%p
-  = link_to "New user", 'users/new', :id => 'new_user_link'
+  .col-md-8{:id => "new_user"}
+    .col-md-1 id
+    .col-md-2 First name
+    .col-md-2 Last name
+    .col-md-2 E-mail
+    .col-md-3 Address
+    .col-md-1 Delete user
+    =render @users
+.col-md-12
+  %p
+  = form_for(@user, remote: true) do |f|
+    %h1 User registration form
+    .col-md-2
+      First name
+      %br
+      = f.text_field :first_name , :value => "Bob"
+      .error_box_first_name
+    .col-md-2
+      Last name
+      %br
+      = f.text_field :last_name, :value => "Smit"
+      .error_box_last_name
+    .col-md-2
+      E-mail
+      %br
+      = f.text_field :email, :value => "asd@gmail.com"
+      .error_box_email
+    .col-md-12.required_fields_color
+      * - required fields
+    .col-md-12
+      %h3 Delivery address
+    .col-md-12
+    .col-md-2
+      Country
+      %br
+      = f.text_field :user_country, :value => "USA"
+    .col-md-2
+      State
+      %br
+      = f.text_field :user_state, :value => "AR"
+    .col-md-2
+      City
+      %br
+      = f.text_field :user_city, :value => "JA"
+    .col-md-2
+      Address
+      %br
+      = f.text_field :user_address, :value => "strit"
+    .col-md-12
+      %p
+        %input{:id => "regis",:name => "send", :type => "submit", :value => "Registration", :class => "btn btn-success"}
