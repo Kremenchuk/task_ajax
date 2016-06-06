@@ -1,13 +1,14 @@
 %h1 Users
 %p
-  .col-md-8{:id => "new_user"}
-    .col-md-1 id
-    .col-md-2 First name
-    .col-md-2 Last name
-    .col-md-2 E-mail
-    .col-md-3 Address
-    .col-md-1 Delete user
-    =render @users
+  %table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%", :id => "new_user"}
+    %tr.user_tr
+      %th id
+      %th First name
+      %th Last name
+      %th E-mail
+      %th Address
+      %th Delete user
+      =render @users
 .col-md-12
   %p
   = form_for(@user, remote: true) do |f|

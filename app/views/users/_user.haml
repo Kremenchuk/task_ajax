@@ -1,8 +1,8 @@
-.col-md-8{:align => 'right', :id => "new_user"}
-  .col-md-1= user.id
-  .col-md-2= user.first_name
-  .col-md-2= user.last_name
-  .col-md-2= user.email
-  .col-md-3= user.user_country + ", " + user.user_state + ", " + user.user_city + ", " + user.user_address
-  .col-md-1{:data_user_id => user.id}
+%tr{:align => 'right', :data_user_id => user.id}
+  %td= user.id
+  %td= user.first_name
+  %td= user.last_name
+  %td= user.email
+  %td= user.user_country + ", " + user.user_state + ", " + user.user_city + ", " + user.user_address
+  %td
     %span.deleteUser Delete

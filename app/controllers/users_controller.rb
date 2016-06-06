@@ -50,12 +50,13 @@ class UsersController < ApplicationController
 
 
 end
-#-@users.each do |i|
-#%tr{:align => 'right', :data_user_id => i.id, :id => 'users_list'}
-#%td= i.id
-#%td= i.first_name
-#%td= i.last_name
-#%td= i.email
-#%td= i.user_country + ", " + i.user_state + ", " + i.user_city + ", " + i.user_address
-#%td
-#%span.deleteUser Delete
+
+
+
+#.col-md-8{:id => "new_user"}
+#.col-md-1 id
+#.col-md-2 First name
+#.col-md-2 Last name
+#.col-md-2 E-mail
+#.col-md-3 Address
+#.col-md-1 Delete user
