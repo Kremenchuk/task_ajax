@@ -14,17 +14,17 @@
   = form_for(@user, remote: true) do |f|
     %h1 User registration form
     .col-md-2
-      First name
+      First name*
       %br
       = f.text_field :first_name , :value => "Bob"
       .error_box_first_name
     .col-md-2
-      Last name
+      Last name*
       %br
       = f.text_field :last_name, :value => "Smit"
       .error_box_last_name
     .col-md-2
-      E-mail
+      E-mail*
       %br
       = f.text_field :email, :value => "asd@gmail.com"
       .error_box_email
