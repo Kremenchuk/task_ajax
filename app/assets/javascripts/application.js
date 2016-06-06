@@ -18,15 +18,10 @@
 //All this logic will automatically be available in application.js.
 //You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(function() {
-    $('.deleteUser').submitOnCheck();
-});
 
-    jQuery.fn.submitOnCheck =function() {
-
-        //+++Delete user+++
-
-        $(".deleteUser").click(function () {
+//+++Delete user+++
+    $(function() {
+         $(".deleteUser").click(function () {
             var current_user = $(this).parents('tr')[0];
             if (confirm("Delete User?")) {
                 $.ajax({
@@ -34,25 +29,19 @@ $(function() {
                     type: 'POST',
                     data: {_method: 'DELETE'},
                     success: function () {
-                        $(current_user).fadeOut(250);
+                        $(current_user).fadeOut(50);
                     }
                 });
             }
         });
-        return false;
-    };
-        //---Delete user---
+    });
+//---Delete user---
 
 
 $(function() {
-    $('#regis').registrationUser();
-});
-
-    jQuery.fn.registrationUser =function() {
         $('#regis').click(function () {
-
             //+++validation+++
-
+            alert("Validation");
             //+++user[first_name] validation+++
 
             if (document.getElementsByName('user[first_name]')[0].value == "") {
@@ -132,23 +121,17 @@ $(function() {
 
             //+++insert new user+++
 
-            /* var first_name =document.getElementsByName('user[first_name]')[0].value
-             var last_name  =document.getElementsByName('user[last_name]')[0].value
-             var e_mail     = document.getElementsByName('user[email]')[0].value
-             var address    = document.getElementsByName('user[user_country]')[0].value + ", " + document.getElementsByName('user[user_state]')[0].value + ", " +
-             document.getElementsByName('user[user_city]')[0].value + ", " + document.getElementsByName('user[user_address]')[0].value;
-             /*$.ajax({
-             success: function() {
-             $("<tr align = 'right', class = 'user_row'}>" +
-             "<td>" + first_name + "</td>" +
-             "<td>" + last_name + "</td>" +
-             "<td>" + e_mail + "</td>" +
-             "<td>" + address + "</td>" +
-             "<td><span class = 'deleteUser'>Delete</span></td></<tr>").fadeIn(500).insertAfter(".user_tr");
+             $.ajax({
+                 url: '/users/',
+                 type: 'POST',
+                 data: {_method: 'create'},
+                 success: function() {
+                    alert("Registration successful")
+
              }
-             });*/
+             });
 
             //---insert new user---
         });
-    };
+    });
 

@@ -2,15 +2,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    #@user = User.new
-    #@user.first_name = "Bob"
-    #@user.last_name = "Bond"
-    #@user.email = "asd@gmail.com"
-    #@user.user_country = "USA"
-    #@user.user_state = "Arizona"
-    #@user.user_city = "City"
-    #@user.user_address = "1-st strit"
-    #@user.save!
   end
 
   def new
@@ -18,15 +9,29 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params[:user])
-   if @user.errors.empty?
-     respond_to do |format|
-       format.html { redirect_to "users/index"}
-       format.js
-     end
-    else
-      render json: {success: false}
+    @user = User.new(params[:user])
+
+   respond_to do |format|
+      if @user.save
+        format.html { render action: "index", notice: 'User was successfully created.' }
+        format.js   {}
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "index" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
+
+   #@user = User.create(params[:user])
+   #if @user.errors.empty?
+   #  redirect_to action: "index"
+   #  #respond_to do |format|
+   #  #  format.html { redirect_to "users/index"}
+   #  #  format.js
+   #  #end
+   #else
+   #   render json: {success: false}
+   #end
   end
 
   def destroy

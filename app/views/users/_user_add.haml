@@ -1,9 +1,0 @@
-%table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%"}
-  %tr{:align => 'right', :data_user_id => @user.id}
-    %td= @user.id
-    %td= @user.first_name
-    %td= @user.last_name
-    %td= @user.email
-    %td= @user.user_country + ", " + @user.user_state + ", " + @user.user_city + ", " + @user.user_address
-    %td
-      %span.deleteUser Delete

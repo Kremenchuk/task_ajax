@@ -1,15 +1,13 @@
 %h1 Users
 %p
-%table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%"}
-  %tr
-    %th id
-    %th First name
-    %th Last name
-    %th E-mail
-    %th Address
-    %th Delete user
-  -i = @users
-  = render partial: "user", locals: {i: i}
-#users_table
+  %table{:cellspacing => "5", :cellpadding => "5", :border => "1", :width => "80%"}
+    %tr.user_tr
+      %th id
+      %th First name
+      %th Last name
+      %th E-mail
+      %th Address
+      %th Delete user
+      =render @users
 %p
-  = link_to "New user", 'users/new',:id => 'new_user_link' , :remote => true
+  = link_to "New user", 'users/new', :id => 'new_user_link'

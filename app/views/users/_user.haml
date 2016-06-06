@@ -1,9 +1,8 @@
--i.each do |f|
-  %tr{:align => 'right', :data_user_id => f.id}
-    %td= f.id
-    %td= f.first_name
-    %td= f.last_name
-    %td= f.email
-    %td= f.user_country + ", " + f.user_state + ", " + f.user_city + ", " + f.user_address
-    %td
-      %span.deleteUser Delete
+%tr{:align => 'right', :data_user_id => user.id}
+  %td= user.id
+  %td= user.first_name
+  %td= user.last_name
+  %td= user.email
+  %td= user.user_country + ", " + user.user_state + ", " + user.user_city + ", " + user.user_address
+  %td
+    %span.deleteUser Delete
